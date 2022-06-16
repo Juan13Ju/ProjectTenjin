@@ -22,13 +22,7 @@ function usuarios(app){
         res.status(200).json(asesor);
     });
 
-    // Creamos un usuario
-    router.post("/", async (req, res) => {
-        const data = req.body;
-        const result = await usuariosService.createUser(data);
-        res.status(201).json(result);
-    });
-
+    // Acutalizamos la informacion de un usuario
     router.put("/:id", async (req, res) => {
         const id = req.params.id;
         const data = req.body;
@@ -36,6 +30,7 @@ function usuarios(app){
         res.status(200).json(result);
     });
 
+    // Borramos un usuario
     router.delete("/:id", async (req, res) => {
         const id = req.params.id;
         const data = req.body;
