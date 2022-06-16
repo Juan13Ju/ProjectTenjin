@@ -4,8 +4,10 @@ const Usuarios = require("./usuarios");
 const bcrypt = require("bcrypt");
 const config = require("../config/config");
 
+
 class Auth{
     usuarios = new Usuarios();
+
 
     // Encripta la contraseña del usuario
     async hashPassword(password){
@@ -32,6 +34,10 @@ class Auth{
     }
 
     async registro(nombre, correo, contrasenaOriginal, carrera, asesorias, info){
+        const usuarioExistente = await this.usuarios.getUser(correo);
+        if(usuarioExistente){
+            return {success: false, msg: "El correo ingresado ya esta registrado"};
+        }
         const contrasena = await this.hashPassword(contrasenaOriginal);
         const user = await this.usuarios.createUser({
             nombre,
