@@ -1,3 +1,4 @@
+// Configuracion para la base de datos
 const mongoose = require("mongoose");
 const config = require("./config");
 

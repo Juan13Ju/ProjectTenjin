@@ -9,7 +9,7 @@ class Usuarios{
     }
     // Obtiene todos los asesores que dan asesorias de la materia buscada
     async getUserAsesor(materia){
-        const asesores = await usuarioModel.find({asesorias: materia}).exec();
+        const asesores = await usuarioModel.find({asesorias: materia}, "-contrasena").exec();
 
         return asesores;
     }

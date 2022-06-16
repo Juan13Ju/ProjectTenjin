@@ -1,3 +1,4 @@
+// Router que maneja las peticiones de usuarios
 const express = require("express");
 const Usuarios = require("../services/usuarios");
 // Aqui definimos los routers para las operaciones de usuarios

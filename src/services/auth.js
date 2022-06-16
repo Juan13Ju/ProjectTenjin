@@ -1,3 +1,4 @@
+// Servicio de autenticacion local
 const jwt = require("jsonwebtoken");
 const Usuarios = require("./usuarios");
 const bcrypt = require("bcrypt");

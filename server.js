@@ -5,6 +5,7 @@ const {connection} = require("./src/config/db");
 // Importamos el router de usuarios
 const usuarios = require("./src/router/usuarios");
 const auth = require("./src/router/auth");
+const comentarios = require("./src/router/comentarios");
 // Configuracion usando dotemv
 const config = require("./src/config/config");
 const app = express();
@@ -18,6 +19,7 @@ connection();
 // Llamamos el router para usuarios
 usuarios(app);
 auth(app);
+comentarios(app);
 
 // Inicializamos el servidor
 const server = app.listen(config.port);

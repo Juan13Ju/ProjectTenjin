@@ -1,3 +1,4 @@
+// Router que maneja las peticiones de autenticacion
 const express = require("express");
 
 const Auth = require("../services/auth");
