@@ -1,6 +1,8 @@
 const comentarioModel = require("../schemas/comentarios");
-
+const UsuarioService = require("./usuarios");
 class Comentario{
+
+    usuarioService = new UsuarioService();
 
     // Funcion que obtiene todos los comentarios de un correo
     async getComentarios(correo){
@@ -10,8 +12,14 @@ class Comentario{
     // Funcion para postear un comentario, data es un objeto que contiene el comentario
     // y el correo a quien esta dirigido
     async postComentario(data){
+        const user = await this.usuarioService.getUser(data.to);
+        console.log(user);
+        if(!user){
+            return {success: false, msg: `El usuario no existe`};
+        }
+        
         const comentario = await comentarioModel.create(data);
-        return comentario;
+        return {success: true, comentario};
     }
 
     // Funcion para borrar un comentario

@@ -18,7 +18,7 @@ function comentarios(app){
     router.post("/", async (req, res) => {
         const data = req.body;
         const comentarioPosteado = await comentarioService.postComentario(data);
-        res.status(200).json(comentarioPosteado);
+        res.status(comentarioPosteado.success ? 200 : 404).json(comentarioPosteado);
     });
 
     router.delete("/:id", async (req, res) => {
