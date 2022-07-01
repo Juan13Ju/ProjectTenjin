@@ -16,7 +16,7 @@ function auth(app){
 
 
         if(result.success){
-            return res.cookie("asesoresToken", result.token).send("Cookie enviada");
+            return res.status(200).cookie("asesoresToken", result.token).send("Cookie enviada");
         }
 
         return res.status(404).json(result);

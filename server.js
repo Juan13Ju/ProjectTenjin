@@ -1,5 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 // Importamos la funcion para conectarnos a la base de datos
 const {connection} = require("./src/config/db");
 // Importamos el router de usuarios
@@ -13,6 +14,7 @@ const app = express();
 //Middleware
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 //Nos conectamos a la base de datos
 connection();
