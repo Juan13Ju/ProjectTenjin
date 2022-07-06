@@ -4,7 +4,7 @@ class Usuarios{
 
     // Obtiene un usuario dado su correo
     async getUser(correo){
-        const user = await usuarioModel.findOne({correo}).exec();
+        const user = await usuarioModel.findOne({correo}, "-contrasena").exec();
         return user;
     }
     // Obtiene todos los asesores que dan asesorias de la materia buscada
