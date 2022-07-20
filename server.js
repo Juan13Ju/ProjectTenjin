@@ -12,9 +12,9 @@ const config = require("./src/config/config");
 const app = express();
 
 //Middleware
+app.use(cookieParser("secret"));
 app.use(express.json());
-app.use(cookieParser());
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 
 //Nos conectamos a la base de datos
 connection();

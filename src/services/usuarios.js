@@ -3,7 +3,11 @@ const usuarioModel = require("../schemas/usuarios");
 class Usuarios{
 
     // Obtiene un usuario dado su correo
-    async getUser(correo){
+    async getUser(correo, devolverPass = false){
+        if(devolverPass){
+            const userConPass = await usuarioModel.findOne({correo}).exec();    
+            return userConPass;
+        }
         const user = await usuarioModel.findOne({correo}, "-contrasena").exec();
         return user;
     }

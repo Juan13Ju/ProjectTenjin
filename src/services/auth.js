@@ -18,7 +18,7 @@ class Auth{
     }
 
     async login(correo, contrasena){
-        const usuario = await this.usuarios.getUser(correo);
+        const usuario = await this.usuarios.getUser(correo, true);
         if(usuario){
             const contraseñaCorrecta = await bcrypt.compare(contrasena, usuario.contrasena);
             if(contraseñaCorrecta){

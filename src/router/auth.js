@@ -10,13 +10,14 @@ function auth(app){
 
     const authService = new Auth();
 
+
     router.post("/login", async (req, res) => {
         const {correo, contrasena} = req.body;
         const result = await authService.login(correo, contrasena);
 
 
         if(result.success){
-            return res.status(200).cookie("asesoresToken", result.token).send("Cookie enviada");
+            return res.status(200).cookie("asesoresToken", result.token, {httpOnly: true, signed: true}).send("Cookie enviada");
         }
 
         return res.status(404).json(result);
