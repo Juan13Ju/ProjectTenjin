@@ -20,7 +20,7 @@ function auth(app){
             return res.status(200).cookie("asesoresToken", result.token, {httpOnly: true, signed: true}).send("Cookie enviada");
         }
 
-        return res.status(404).json(result);
+        return res.status(403).json(result);
     });
 
     router.post("/registro", async (req, res) => {
