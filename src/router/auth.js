@@ -17,10 +17,15 @@ function auth(app){
 
 
         if(result.success){
-            return res.status(200).cookie("asesoresToken", result.token, {httpOnly: true, signed: true}).send("Cookie enviada");
+            //TODO : Token
+            res.cookie("asesoresToken", result.token, {
+                httpOnly: true,
+            });
+            res.redirect("http://localhost:5500/frontend/main.html");
+            console.log("Redireccion");
+        }else{
+            return res.status(403).json(result);
         }
-
-        return res.status(403).json(result);
     });
 
     router.post("/registro", async (req, res) => {
