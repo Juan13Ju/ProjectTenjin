@@ -13,7 +13,6 @@ class Comentario{
     // y el correo a quien esta dirigido
     async postComentario(data){
         const user = await this.usuarioService.getUser(data.to);
-        console.log(user);
         if(!user){
             return {success: false, msg: `El usuario no existe`};
         }
