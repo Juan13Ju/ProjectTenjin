@@ -12,9 +12,17 @@ const config = require("./src/config/config");
 const app = express();
 
 //Middleware
-app.use(cookieParser("secret"));
+app.use(cookieParser());
 app.use(express.json());
 app.use(cors({origin: true, credentials: true}));
+
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.header('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT ,DELETE');
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+})
 
 //Nos conectamos a la base de datos
 connection();

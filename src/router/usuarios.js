@@ -1,6 +1,7 @@
 // Router que maneja las peticiones de usuarios
 const express = require("express");
 const Usuarios = require("../services/usuarios");
+const decodeToken = require("../libs/decodeToken");
 // Aqui definimos los routers para las operaciones de usuarios
 function usuarios(app){
     const router = express.Router();
@@ -8,6 +9,11 @@ function usuarios(app){
 
     const usuariosService = new Usuarios();
 
+    router.get("/MyProfile", async(req, res) => {
+        console.log(JSON.stringify(req.cookies));
+        //const user = decodeToken(asesoresToken);
+        res.status(200).json({hola: "ola"});
+    });
     // Obtiene un usuario dado su correo
     router.get("/:correo", async(req, res) => {
         const correo = req.params.correo;

@@ -17,12 +17,14 @@ function auth(app){
 
 
         if(result.success){
-            //TODO : Token
-            res.cookie("asesoresToken", result.token, {
-                httpOnly: true,
-            });
-            res.redirect("http://localhost:5500/frontend/main.html");
-            console.log("Redireccion");
+            // console.log("aui");
+            // res.header('Authorization', 'Bearer' + result.token);
+            res.status(200).json({token : result.token});
+            // -------------
+            // res.cookie("asesoresToken", result.token, {
+            //     httpOnly: true,
+            // });
+            
         }else{
             return res.status(403).json(result);
         }
