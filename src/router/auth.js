@@ -16,7 +16,7 @@ function auth(app){
         const result = await authService.login(correo, contrasena);
 
         let date = new Date().setDate(new Date().getDate()+7)
-        res.status(result.success?200:400).cookie("token",result.token,{
+        res.status(result.success?200:400).cookie("asesorenToken",result.token,{
             sameSite:"none",
             expires:new Date(date),
             secure:true
