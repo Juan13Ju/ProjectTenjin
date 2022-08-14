@@ -17,7 +17,6 @@ function auth(app){
 
         let date = new Date().setDate(new Date().getDate()+7)
         res.status(result.success?200:400).cookie("token",result.token,{
-            httpOnly:true,
             sameSite:"none",
             expires:new Date(date),
             secure:true
