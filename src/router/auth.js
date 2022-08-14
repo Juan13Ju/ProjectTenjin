@@ -20,7 +20,7 @@ function auth(app){
             sameSite:"none",
             expires:new Date(date),
             secure:true
-        }).json({nombre:result.usuario.nombre});
+        }).send({token: result.token});
 
         
             // console.log("aui");
