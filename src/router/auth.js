@@ -15,19 +15,24 @@ function auth(app){
         const {correo, contrasena} = req.body;
         const result = await authService.login(correo, contrasena);
 
+        let date = new Date().setDate(new Date().getDate()+7)
+        res.status(result.success?200:400).cookie("token",result.token,{
+            httpOnly:true,
+            sameSite:"none",
+            expires:new Date(date),
+            secure:true
+        }).json({nombre:result.usuario.nombre});
 
-        if(result.success){
+        
             // console.log("aui");
             // res.header('Authorization', 'Bearer' + result.token);
-            res.status(200).json({token : result.token});
+            //res.status(200).json({token : result.token});
             // -------------
             // res.cookie("asesoresToken", result.token, {
             //     httpOnly: true,
             // });
             
-        }else{
-            return res.status(403).json(result);
-        }
+    
     });
 
     router.post("/registro", async (req, res) => {
