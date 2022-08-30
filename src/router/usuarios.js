@@ -9,10 +9,11 @@ function usuarios(app){
 
     const usuariosService = new Usuarios();
 
+    // Obtenemos el token del perfil para obtener su informacion y llenar la pagina de perfil
     router.get("/MyProfile", async(req, res) => {
-        console.log(JSON.stringify(req.cookies));
-        //const user = decodeToken(asesoresToken);
-        res.status(200).json({hola: "ola"});
+        const {asesoresToken} = req.cookies;
+        const decodedUser = decodeToken(asesoresToken);
+        res.status(200).json({user: decodedUser});
     });
     // Obtiene un usuario dado su correo
     router.get("/:correo", async(req, res) => {

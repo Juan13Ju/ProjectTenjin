@@ -16,12 +16,14 @@ function auth(app){
         const result = await authService.login(correo, contrasena);
 
         let date = new Date().setDate(new Date().getDate()+7)
-        res.status(result.success?200:400).cookie("asesorenToken",result.token,{
+        res.status(result.success?200:403).cookie("asesoresToken",result.token,{
             httpOnly: false,
             sameSite:"None",
             expires:new Date(date),
             secure:true
-        }).send({token: result.token});
+        });
+        console.log("Redireccionando");
+        res.render("main");
 
         
             // console.log("aui");
