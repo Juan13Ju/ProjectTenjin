@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="css/stylesMain.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <title>Main page</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="main.html">Buscar</a></li>
+                <li><a href="#">Salir</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="mainPage">
+        <div class="inputContainer">
+            <label for="materiaBuscar">Materia: </label>
+            <input type="text" name="materiaBuscar" id="inputMateria">
+            <label for="carrera">Filtrar por carrera de origen:</label>
+            <select name="carrera" id="carreraFiltro">
+                <option value="None">Sin filtro</option>
+                <option value="Actuaria">Actuaria</option>
+                <option value="Biologia">Biologia</option>
+                <option value="Ciencias de la Computacion">Ciencias de la Computacion</option>
+                <option value="Ciencias de la tierra">Ciencias de la Tierra</option>
+                <option value="Fisica biomedica">Fisica Biomedica</option>
+                <option value="Matematicas">Matematicas</option>
+                <option value="Matematicas aplicadas">Matematicas Aplicadas</option>
+            </select>
+            <button id="btnBuscar" class="btn">Buscar</button>
+        </div>
+
+        <div class="listaAsesores" id="listaAsesores">
+            
+        </div>
+    </div>
+</body>
+</html>

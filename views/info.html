@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="js/info.js" defer></script>
+    <link rel="stylesheet" href="css/stylesMain.css">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="main.html">Buscar</a></li>
+                <li><a href="#">Salir</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="mainPage">
+        <div class="cardProfile">
+            <h2 class="nombre" id="nombre"></h2>
+            <h3 class="correo" id="correo"></h3>
+            <h3 class="carrera" id="carrera"></h3>
+            <p class="info" id="info"></p>
+        </div>
+        <h2>Comentarios:</h2>
+        <div class="comentariosContainer" id="comentariosContainer">
+        </div>
+        <div class="comentarioInputContainer">
+            <label for="comentarioInput">Deja tu comentario:</label>
+            <textarea name="comentarioInput" id="comentarioInput" cols="30" rows="10"></textarea>
+            <button id="submitBtn" class="btn">Enviar</button>
+        </div>
+    </div>    
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesMain.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="js/miPerfil.js" defer></script>
+    <title>Mi Perfil</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="main.html">Buscar</a></li>
+                <li><a href="#">Salir</a></li>
+            </ul>
+        </div>
+
+        <div class="infoContainer">
+            <h2>Puedes editar la informacion de tu perfil aqui:</h2>
+            <div class="editInfoContainer">
+                <label for="nombre">Nombre: </label>
+                <input name="nombre" type="text" id="nombre">
+                <label for="carrera">Carrera de origen:</label>
+                <input type="text" name="carrera" id="carrera">
+                <label for="asesorias" id="asesorias">
+                    Materias en las que ofreces asesorias:
+                    <span>Ingresa una lista separada por comas, ej: Materia 1, Materia 2.</span>
+                    <span>Para materias que usan numeros romanos utiliza 1,2,3,...</span>
+                </label>
+                <input type="text" name="asesorias">
+                <label for="info">
+                    Tu informacion:
+                    <span>Puedes poner informacion adicional de contacto o sobre tus precios</span>
+                </label>
+                <textarea name="info" id="info" cols="30" rows="10"></textarea>
+                <button id="btnUpdate" class="btn">Actualizar</button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
