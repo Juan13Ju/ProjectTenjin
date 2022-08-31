@@ -1,0 +1,194 @@
+/*
+CSS general
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bgc: #ECECEC;
+    --main: #5463FF;
+    --secondary: #FFC300;
+}
+/*
+Barra de navegacion
+*/
+.nav ul{
+    list-style: none;
+    background-color: var(--bgc);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.nav a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: all 0.7s;;
+}
+
+.nav a:hover{
+    color: white;
+    background-color: var(--main);
+}
+
+@media screen and (min-width: 600px) {
+    .nav li {
+      width: 120px;
+      border-bottom: none;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+    }
+   
+    
+    .nav li {
+      display: inline-block;
+      margin-right: -4px;
+    }
+}
+/*
+El contenedor principal de la pagina que muestra la lista de personas y la parte de buscar
+*/
+.mainPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    background-color: var(--bgc);
+    padding: 10px;
+    min-height: 500px;
+    max-height: 75%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.btn{
+
+    color: white;
+    background-color: var(--main);
+    padding: 7px 12px;
+    border: none;
+    border-radius: 500px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 1s;
+}
+
+.btn:hover{
+    border: 1px solid var(--main);
+    background-color: white;
+    color: var(--main);
+}
+
+.listaAsesores{
+    border: 1px solid #000;
+    width: 80%;
+    max-height: 70%;
+    overflow-y: scroll;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.card{
+    max-width: 275px;
+    max-height: 200px;
+    overflow-y: scroll;
+    flex-grow: 1;
+    padding: 1em;
+    background-color: var(--main);
+    color: white;
+    cursor: pointer;
+    transition: all 1s;
+    
+}
+
+.card h2{
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 5px;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+/*
+Perfil de usuario
+*/
+.comentariosContainer{
+    border: 2px solid black;
+    background-color: rgba(0,0,0,.2);
+    width: 75%;
+    padding: .5em 1em;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comentario{
+    
+    padding: 5px 10px;
+    background-color: var(--bgc);
+}
+
+.cardProfile{
+    max-width: 70%;
+    
+    
+    padding: 1em;
+    background-color: var(--main);
+    color: white;
+    cursor: pointer;
+    transition: all 1s;
+    
+}
+
+.cardProfile h2{
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 5px;
+}
+
+/*
+Mi Perfil
+*/
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+.editInfoContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    border: 1px solid red;
+    padding: 15px;
+}
+
+span{
+    color: gray;
+    font-size: small;
+}
