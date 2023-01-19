@@ -26,6 +26,7 @@ class Auth{
                     {
                         expiresIn: "1d"
                     });
+                console.log("El token es: ", token);
 
                 return {token, usuario, success: true};
             }
