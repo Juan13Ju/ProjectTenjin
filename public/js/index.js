@@ -31,7 +31,7 @@ registerBtn.addEventListener('click', () => {
 
 	let data = {nombre, correo, contrasena, carrera};
 
-	axios.post(url+"/registro", data)
+	axios.post(url+"registro", data)
 				.then(res => console.log(res))
 				.catch(err => console.log(err));
 });
