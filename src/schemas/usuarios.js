@@ -15,7 +15,11 @@ const usuarioSchema = new Schema(
         correo: {type: String, required: true, validate: custom},
         contrasena: {type: String, required: true},
         carrera: {type: String, required: true},
-        // TODO - Investigar como añadir fotos
+        // Esta es la foto por default
+        fotoPerfilId : {
+            type: String,
+            default: "noProfile_jaqk9o"
+        },
         asesorias: [String],
         calif: Number,
         info: String
