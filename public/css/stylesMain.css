@@ -12,6 +12,8 @@ CSS general
     --bgc: #194073;
     --main: #2351BC;
     --secondary: #FFC300;
+    --dec:#6F0619;
+    --do: #897014;
 }
 /*
 Barra de navegacion
@@ -21,8 +23,9 @@ Barra de navegacion
     list-style: none;
     background-color: var(--bgc);
     text-align: center;
+    display: inline-flexbox;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .nav li{
@@ -31,6 +34,7 @@ Barra de navegacion
     line-height: 40px;
     height: 40px;
     border-bottom: 1px solid var(--secondary);
+    margin-left: 2em;
 }
 
 .nav a{
@@ -41,7 +45,7 @@ Barra de navegacion
 }
 .nav label{
     text-decoration: none;
-    text-overflow: clip;
+    text-overflow: break-word;
     color: #ffffff;
     display: block;
     transition: all 0.7s;;
@@ -65,21 +69,7 @@ Barra de navegacion
       margin-right: -4px;
     }
     .mainPage{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-        width: 70%;
         background-color: var(--secondary);
-        padding: 10%;
-        min-height: 20%;
-        max-height: 75%;
-        margin: 0;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
     }
 }
 /*
@@ -95,7 +85,7 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     padding: 10%;
     min-height: 20%;
     max-height: 75%;
-    margin: 0;
+    margin-top: 2%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -145,7 +135,7 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     flex-grow: 1;
     padding: 1em;
     background-color: var(--main);
-    color: white;
+    color: #194073;
     cursor: pointer;
     transition: all 1s;
     
