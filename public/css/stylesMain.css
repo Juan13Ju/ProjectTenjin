@@ -192,19 +192,50 @@ Mi Perfil
 */
 
 .infoContainer{
+    background-color: #194073;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
     margin-top: 25px;
+}
+.infoContainer h2{
+    color: #F5F5F5;
 }
 .editInfoContainer{
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    border: 1px solid red;
     padding: 15px;
 }
+.editInfoContainer label{
+    color: #000000;
+    background-color: #FFC300;
+    border-radius: 1em;
+    padding: 2%;
+}
+.editInfoContainer input{
+    color: #000000;
+    background-color: #897014;
+    border-radius: 1em;
+    padding: 2%;
+    margin-bottom: 0.25rem;
+}
+
+.editInfoContainer textarea{
+    color: #000000;
+    background-color: #897014;
+    border-radius: 1em;
+    padding: 2%;
+    margin-bottom: 0.25rem;
+}
+
+.editInfoContainer > * {
+    text-align: center;
+    font-weight: 300;
+  }
 
 span{
     color: gray;
