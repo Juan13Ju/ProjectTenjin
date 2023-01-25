@@ -27,21 +27,43 @@ function crearLista(arr){
         let card = document.createElement("div");
         card.classList.add("card");
         // Creamos un nuevo elemento para cada info que queremos mostrar
-       let nombre = document.createElement("h2");
-       nombre.textContent = el.nombre;
+       let nombre = document.createElement("h3");
+       nombre.textContent =  el.nombre;
 
        let correo = document.createElement("h3");
        correo.textContent = el.correo;
-
+       
        let carrera = document.createElement("h3");
        carrera.textContent = el.carrera;
-
+       
        let info = document.createElement("p");
        info.textContent = el.info;
        
+       
+       // Etiquetas para la info
+       let etiqueta_nombre = document.createElement("h2");
+       etiqueta_nombre.textContent =  "Nombre";
+
+       let etiqueta_correo = document.createElement("h2");
+       etiqueta_correo.textContent =  "Correo";
+       
+       let etiqueta_carrera = document.createElement("h2");
+       etiqueta_carrera.textContent =  "Carrera de origen";
+
+       let etiqueta_info = document.createElement("h2");
+       etiqueta_info.textContent =  "Descripcion";
+
+       
+       card.append(etiqueta_nombre);
        card.append(nombre);
+
+       card.append(etiqueta_correo);
        card.append(correo);
+       
+       card.append(etiqueta_carrera);
        card.append(carrera);
+       
+       card.append(etiqueta_info);
        card.append(info);
 
        // Funcion para abrir una nueva ventana con la informacion del usuario
