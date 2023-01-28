@@ -125,8 +125,7 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     max-width: fit-content;
     flex-grow: 1;
     padding: 1em;
-    background-color: var(--main);
-    color: #194073;
+    background-color: var(--bgc);
     cursor: pointer;
     transition: all 1s;
     overflow-y: scroll;
@@ -134,13 +133,24 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
 }
 
 .card h2 {
-    background-color: #FFC300;
-    padding-bottom: 0.02em;
+    background-color: var(--secondary);
+    margin-top: 0.2em;
 }
-.card h2 {
-    background-color: #FFC300;
-    border-radius: 2%;
-    padding-bottom: 0.02em;
+.card h3 {
+    background-color: var(--do);
+}
+.card p {
+    background-color: var(--do);
+}
+
+.card > *{
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-align: left;
+    margin: auto 0;
+    border-radius: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .card:hover{
@@ -176,8 +186,6 @@ Perfil de usuario
 
 .cardProfile{
     max-width: 70%;
-    
-    
     padding: 1em;
     background-color: var(--main);
     color: white;
