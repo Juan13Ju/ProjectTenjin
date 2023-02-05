@@ -52,20 +52,34 @@ function crearLista(arr){
 
        let etiqueta_info = document.createElement("h2");
        etiqueta_info.textContent =  "Descripcion";
-
+    
        
-       card.append(etiqueta_nombre);
-       card.append(nombre);
-
-       card.append(etiqueta_correo);
-       card.append(correo);
        
-       card.append(etiqueta_carrera);
-       card.append(carrera);
-       
-       card.append(etiqueta_info);
-       card.append(info);
+       let bloque1 = document.createElement("div");
+       bloque1.classList.add("sec-card");
+       let bloque2 = document.createElement("div");
+       bloque2.classList.add("sec-card");
 
+       let img = document.createElement("img");
+
+       card.append(bloque1);
+       card.append(bloque2);
+
+       bloque1.append(img);
+       img.setAttribute("src", "img/no-profile-image.png");
+
+       bloque1.append(etiqueta_nombre);
+       bloque1.append(nombre);
+
+       bloque1.append(etiqueta_correo);
+       bloque1.append(correo);
+       
+       bloque2.append(etiqueta_carrera);
+       bloque2.append(carrera);
+       
+       bloque2.append(etiqueta_info);
+       bloque2.append(info);
+       
        // Funcion para abrir una nueva ventana con la informacion del usuario
        card.addEventListener("click", () => {
         let correo = card.children[1].innerHTML;

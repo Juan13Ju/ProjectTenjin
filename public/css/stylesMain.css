@@ -120,35 +120,44 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     flex-wrap: wrap;
     gap: 1em;
 }
-
 .card{
     max-width: fit-content;
+    display: flex;
     flex-grow: 1;
     padding: 1em;
     background-color: var(--bgc);
     cursor: pointer;
     transition: all 1s;
     overflow-y: scroll;
-    
+}
+.sec-card{  
+    align-content: start;
+    text-align: center;    
+    margin: auto 0;
+    margin-top: 1px;
+}
+.sec-card img{
+    width: 10em;
 }
 
-.card h2 {
+.sec-card h2 {
     background-color: var(--secondary);
     margin-top: 0.2em;
+    border-radius: 1em 1em 0em 0em;
 }
-.card h3 {
+.sec-card h3 {
     background-color: var(--do);
+    border-radius: 0em 0em 1em 1em;
 }
-.card p {
+.sec-card p {
     background-color: var(--do);
+    border-radius: 0em 0em 1em 1em;
 }
-
-.card > *{
+.sec-card > *{
     overflow-wrap: break-word;
     overflow: hidden;
-    text-align: left;
+    text-align: left;   
     margin: auto 0;
-    border-radius: 1em;
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
@@ -164,6 +173,18 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     background-color: #F5F5F5;
     display: none;
 }
+
+/*Resposive card*/
+@media screen and (max-width: 600px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--dec);
+    }
+}
+
+
+
 /*
 Perfil de usuario
 */
