@@ -71,7 +71,8 @@ Barra de navegacion
         padding: 2%;
     }
     .mainPage{
-        background-color: var(--secondary);
+        /*background-color: var(--secondary);*/
+        display: grid;
     }
 }
 /*
@@ -82,9 +83,8 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    margin: auto;
     margin-top: 2%;
-    padding-left: 20px;
+    margin: auto;
 }
 
 .btn{
@@ -121,7 +121,8 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     gap: 1em;
 }
 .card{
-    max-width: fit-content;
+    max-width: 40%;
+    min-width: 40%;
     display: flex;
     flex-grow: 1;
     padding: 1em;
@@ -129,6 +130,7 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     cursor: pointer;
     transition: all 1s;
     overflow-y: scroll;
+    margin: auto;
 }
 .sec-card{  
     align-content: start;
@@ -137,7 +139,7 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     margin-top: 1px;
 }
 .sec-card img{
-    width: 10em;
+    width: 70%;
 }
 
 .sec-card h2 {
@@ -175,11 +177,14 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
 }
 
 /*Resposive card*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1300px) {
     .card{
         display: flex;
         flex-direction: column;
         background-color: var(--dec);
+    }
+    .card img{
+        width: 5em;
     }
 }
 
@@ -190,7 +195,7 @@ Perfil de usuario
 */
 .comentariosContainer{
     border: 2px solid black;
-    background-color: rgba(0,0,0,.2);
+    background-color: #6ee2e633;
     width: 75%;
     padding: .5em 1em;
     overflow-y: scroll;
@@ -202,7 +207,7 @@ Perfil de usuario
 .comentario{
     
     padding: 5px 10px;
-    background-color: var(--bgc);
+    background-color: #747070;
 }
 
 .cardProfile{
@@ -226,7 +231,7 @@ Mi Perfil
 
 .infoContainer{
     background-color: #194073;
-    display: flex;
+    display: grid;
     flex-direction: column;
     align-items: center;
     justify-content: center;

@@ -38,7 +38,9 @@ function crearLista(arr){
        
        let info = document.createElement("p");
        info.textContent = el.info;
-       
+
+       const url_base_foto = "https://res.cloudinary.com/dzya3fvwj/image/upload/v1674083608/";
+       let id_foto=el.fotoPerfilId;
        
        // Etiquetas para la info
        let etiqueta_nombre = document.createElement("h2");
@@ -66,7 +68,7 @@ function crearLista(arr){
        card.append(bloque2);
 
        bloque1.append(img);
-       img.setAttribute("src", "img/no-profile-image.png");
+       img.setAttribute("src", url_base_foto+id_foto);
 
        bloque1.append(etiqueta_nombre);
        bloque1.append(nombre);
