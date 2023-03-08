@@ -47,7 +47,7 @@ class Auth{
             carrera,
             asesorias : asesorias || [],
             info : info || "Sin informacion"
-        });
+        }); 
 
         return {success: true, user};
     }

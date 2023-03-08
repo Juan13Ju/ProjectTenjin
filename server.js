@@ -44,7 +44,7 @@ views(app);
 const server = app.listen(config.port);
 
 process.on('unhandledRejection',(err,promise)=>{
-    console.log('Error',err.message)
+    console.log('Error : \n',err.message)
     console.log(err.stack);
     server.close(()=>process.exit(1))
 })

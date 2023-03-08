@@ -15,8 +15,11 @@ function auth(app){
         const {correo, contrasena} = req.body;
         const result = await authService.login(correo, contrasena);
 
+        if(!result.success){
+            return res.status(403).json({msg : "Credenciales incorrectas", result});
+        }
         let date = new Date().setDate(new Date().getDate()+7)
-        res.status(result.success?200:403).cookie("asesoresToken",result.token,{
+        res.status(200).cookie("asesoresToken",result.token,{
             httpOnly: false,
             sameSite:"None",
             expires:new Date(date),
@@ -38,6 +41,7 @@ function auth(app){
     });
 
     router.post("/registro", async (req, res) => {
+        console.log(req.body);
         const {nombre, correo, contrasena, carrera, asesorias, info} = req.body;
         const result = await authService.registro(nombre, correo, contrasena, carrera, asesorias, info);
         return res.status(result.success?201:400).json(result);
