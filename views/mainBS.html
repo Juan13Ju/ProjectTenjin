@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/newStyles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="/js/main.js" defer></script>
+
+    <title>Main page</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Asesores Ciencias</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Mi perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Buscar</a>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline-danger" id="btnSalir">Salir</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-lg container-bg max-w-80">
+        <form class="row">
+            <div class="col-auto">
+                <label for="materiaBuscar">Materia: </label>
+                <input type="text" name="materiaBuscar" id="inputMateria">
+            </div>
+            <div class="col-auto">
+                <label for="materiaBuscar">Filtrar por carrera de origen: </label>
+                <select name="carrera" id="carreraFiltro">
+                    <option value="None">Sin filtro</option>
+                    <option value="Actuaria">Actuaria</option>
+                    <option value="Biologia">Biologia</option>
+                    <option value="Ciencias de la Computacion">Ciencias de la Computacion</option>
+                    <option value="Ciencias de la tierra">Ciencias de la Tierra</option>
+                    <option value="Fisica biomedica">Fisica Biomedica</option>
+                    <option value="Matematicas">Matematicas</option>
+                    <option value="Matematicas aplicadas">Matematicas Aplicadas</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-success" id="btnBuscar">Buscar</button>
+            </div>
+        </form>
+
+        <div class="row" id="listaAsesores">
+
+        </div>
+    </div>
+
+    <!--Bootstrap bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+</html>
