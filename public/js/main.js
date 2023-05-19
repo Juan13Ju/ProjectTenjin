@@ -9,15 +9,16 @@ const btnBuscar = document.getElementById("btnBuscar");
 
 const filter = document.getElementById("carreraFiltro");
 
-btnBuscar.addEventListener("click", () => {
+btnBuscar.addEventListener("click", (event) => {
+    event.preventDefault(); // Esto causa que se reinicie, porque es un form xd
     const materia = input.value;
-    
     axios.get(url + materia).then(response => crearLista(response.data)).catch(err => console.log(err));
+    
 });
 
 function createCard(userInfo, container){
     let card = document.createElement("div");
-    card.classList.add("card", "col-md-4");
+    card.classList.add("card", "col-md-3");
     container.appendChild(card);
     // La imagen de la tarjeta
     let img = document.createElement("img");
@@ -70,6 +71,7 @@ function crearLista(arr){
         arr = arr.filter(el => el.carrera == filter.value);
     }
     arr.forEach(el => {
+        console.log("Creando tarjeta");
        createCard(el, contenedor);
     });
 }

@@ -25,6 +25,7 @@ function usuarios(app){
     //Obtiene un asesor para la materia buscada
     router.get("/asesores/:materia", async(req, res) => {
         const materia = req.params.materia;
+        console.log(`[GET] /asesores/${materia}`);
         const asesor = await usuariosService.getUserAsesor(materia);
         res.status(200).json(asesor);
     });
