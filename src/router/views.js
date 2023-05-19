@@ -23,6 +23,11 @@ function views(app){
     router.get("/perfil.html", (req, res) => {
         res.render("perfil");
     });
+
+    // Para hacer pruebas
+    router.get("/mainBS.html", (req, res) => {
+        res.render("mainBS");
+    });
 }
 
 module.exports = views;

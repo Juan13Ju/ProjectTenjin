@@ -1,0 +1,11 @@
+:root{
+    --custom-bg-color: #EEEEEE;
+}
+
+.container-bg{
+    background-color: var(--custom-bg-color);
+}
+
+.card{
+    padding: 10px;
+}
