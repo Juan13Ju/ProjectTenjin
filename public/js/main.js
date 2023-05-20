@@ -47,6 +47,9 @@ function createCard(userInfo, container){
     // Correo
     let correo = document.createElement("li");
     correo.textContent = userInfo.correo;
+
+    let correoE = correo.textContent;
+
     correo.classList.add("list-group-item");
     cardUl.appendChild(correo);
     // Carrera
@@ -56,8 +59,7 @@ function createCard(userInfo, container){
     cardUl.appendChild(carrera);
     // Funcion para abrir una nueva ventana con la informacion del usuario
     card.addEventListener("click", () => {
-        let correo = card.children[1].innerHTML;
-        window.location.href = "info.html?correo="+correo;
+        window.location.href = "info.html?correo="+correoE;
        });
 
 }
