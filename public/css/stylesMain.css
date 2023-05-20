@@ -188,43 +188,6 @@ El contenedor principal de la pagina que muestra la lista de personas y la parte
     }
 }
 
-
-
-/*
-Perfil de usuario
-*/
-.comentariosContainer{
-    border: 2px solid black;
-    background-color: #6ee2e633;
-    width: 75%;
-    padding: .5em 1em;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.comentario{
-    
-    padding: 5px 10px;
-    background-color: #747070;
-}
-
-.cardProfile{
-    max-width: 70%;
-    padding: 1em;
-    background-color: var(--main);
-    color: white;
-    cursor: pointer;
-    transition: all 1s;
-    
-}
-
-.cardProfile h2{
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 5px;
-}
-
 /*
 Mi Perfil
 */
