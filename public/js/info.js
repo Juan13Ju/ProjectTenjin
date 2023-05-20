@@ -14,7 +14,8 @@ btnComentario.addEventListener("click", () => {
     let text = comentarioInput.value;
     let data = {
         to: correo,
-        comentario: text
+        comentario: text,
+        calif: 0
     }
     axios.post(apiComentarios, data)
             .then(res => console.log("Comentario exitoso"))
@@ -34,6 +35,7 @@ axios.get(apiUsuarios+correo)
 axios.get(apiComentarios+correo)
     .then(response => {
         crearComentarios(response.data);
+        console.log(response.data);
     })
     .catch(err => {
         console.log(err);
