@@ -19,7 +19,7 @@ loginBtn.addEventListener('click', () => {
 	let data = {correo: email, contrasena: pass};
 	axios.post(url+"login", data, {
 		withCredentials: true
-	}).then(res => console.log("Resultado: \n" + res))
+	}).then(res => window.location.reload())//console.log("Resultado: \n" + res))
 	  .catch(err => console.log(err));	
 });
 // document.cookie = `asesoresToken=${res.data.token}; secure=false`

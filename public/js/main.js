@@ -1,19 +1,30 @@
-
+window.addEventListener('load', () => {
+    let cookieAsesores = document.cookie.match(/asesoresToken=([^;]+)/);
+     if (cookieAsesores == null) location.href = "/";
+   }, false);
 
 const input = document.getElementById("inputMateria");
 
 const url = "/api/usuarios/asesores/";
 
-
 const btnBuscar = document.getElementById("btnBuscar");
-
+const btnSalir = document.getElementById("btnSalir");
 const filter = document.getElementById("carreraFiltro");
+
 
 btnBuscar.addEventListener("click", (event) => {
     event.preventDefault(); // Esto causa que se reinicie, porque es un form xd
     const materia = input.value;
     axios.get(url + materia).then(response => crearLista(response.data)).catch(err => console.log(err));
     
+});
+
+// Para cerrar sesion
+btnSalir.addEventListener("click", (event) => {
+    event.preventDefault(); // Esto causa que se reinicie, porque es un form xd
+    asesores=document.cookie;
+    document.cookie = "asesoresToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.href = "";
 });
 
 function createCard(userInfo, container){

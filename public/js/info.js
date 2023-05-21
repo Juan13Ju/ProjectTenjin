@@ -1,3 +1,8 @@
+window.addEventListener('load', () => {
+    let cookieAsesores = document.cookie.match(/asesoresToken=([^;]+)/);
+     if (cookieAsesores == null) location.href = "/";
+   }, false);
+   
 // Obtenemos el correo del usuario para crear su perfil
 const urlString = window.location.href;
 const url = new URL(urlString);
@@ -8,8 +13,18 @@ const apiComentarios = "/api/comentarios/";
 
 const comentarioInput = document.getElementById("comentarioInput");
 const btnComentario = document.getElementById("submitBtn");
+const btnSalir = document.getElementById("btnSalir");
 
 const califInput = document.getElementsByName("estrellas");
+
+
+// Para cerrar sesion
+btnSalir.addEventListener("click", (event) => {
+    event.preventDefault(); // Esto causa que se reinicie, porque es un form xd
+    asesores=document.cookie;
+    document.cookie = "asesoresToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.href = "";
+});
 
 // Para dejar comentarios
 btnComentario.addEventListener("click", () => {
