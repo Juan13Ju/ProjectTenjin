@@ -9,13 +9,18 @@ const apiComentarios = "/api/comentarios/";
 const comentarioInput = document.getElementById("comentarioInput");
 const btnComentario = document.getElementById("submitBtn");
 
+const califInput = document.getElementsByName("estrellas");
+
 // Para dejar comentarios
 btnComentario.addEventListener("click", () => {
     let text = comentarioInput.value;
+    let estrella = 0;
+    califInput.forEach(el => {
+        if (el.checked) estrella=el.value;});
     let data = {
         to: correo,
         comentario: text,
-        calif: 0
+        calif: estrella
     }
     axios.post(apiComentarios, data)
             .then(res => console.log("Comentario exitoso"))
@@ -34,12 +39,36 @@ axios.get(apiUsuarios+correo)
 // Comentarios asociados al perfil
 axios.get(apiComentarios+correo)
     .then(response => {
-        crearComentarios(response.data);
-        console.log(response.data);
+        let respuesta = response.data;
+        crearComentarios(respuesta);
+        let promedio = calcularPromedio(respuesta);
+        console.log(promedio);
+        let prom = document.getElementById("promedio");
+        prom.textContent = promedio+mostrarEstrellas(promedio);
     })
     .catch(err => {
         console.log(err);
     });
+// Calcular promedio de calificaciones
+function calcularPromedio(response){
+    let suma = 0;
+    response.forEach(c => {
+        if (isNaN(c.calif)) c.calif = 0;
+        suma+=c.calif;
+    });
+    return suma/response.length;
+}
+// Crear cadena de estrellas
+function mostrarEstrellas(promedio) {
+    var estrellas = '';
+    var maxEstrellas = 5;
+    for (var i = 0; i < maxEstrellas; i++) {
+      if (promedio > i) estrellas += '⭐️';
+      else estrellas += '☆';
+    }
+    return estrellas;
+  }
+
 
 // Creamos la info del usuario
 function crearInfo(data){
