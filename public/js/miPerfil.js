@@ -7,11 +7,11 @@ const apiPerfil = "api/usuarios/MyProfile";
 
 // Obtenemos los inputs en los que estan la informacion del usuario
 const apiUsuarios = "api/usuarios/"
-const nombre = document.getElementById("nombre");
+/* const nombre = document.getElementById("nombre");
 const carrera = document.getElementById("carrera");
 const materias = document.getElementById("asesorias");
 const info = document.getElementById("info");
-const btnSalir = document.getElementById("btnSalir");
+const btnSalir = document.getElementById("btnSalir"); */
 
 // Id para poder actualizar al usuario
 let id = null;
@@ -25,7 +25,7 @@ btnSalir.addEventListener("click", (event) => {
 });
 
 // Para el boton de actualizar
-const btnUpdate = document.getElementById("btnUpdate");
+/* const btnUpdate = document.getElementById("btnUpdate");
 btnUpdate.addEventListener("click", () => {
     let newNombre = nombre.value;
     let newCarrera = carrera.value;
@@ -45,21 +45,29 @@ btnUpdate.addEventListener("click", () => {
         info: newInfo
     });
 
-});
+}); */
 
 function llenarInfo(email){
-    let infoUser = null;
+    let userInfo = null;
     axios.get(apiUsuarios+email)
             .then(res => {
-                infoUser = res.data;
-                id = infoUser._id;
+                userInfo = res.data;
+                /*id = infoUser._id;
                 nombre.value = infoUser.nombre;
                 carrera.value = infoUser.carrera;
                 materias.value = infoUser.asesorias.join();
-                info.value = infoUser.info;
+                info.value = infoUser.info; */
+                // Obtenemos la imagen
+                let img = document.createElement("img");
+                let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
+                img.setAttribute("src", imgSrc);
+                // Agregamos la imagen 
+                let fig = document.getElementById("profileImg");
+                fig.appendChild(img);
             })
             .catch(err => console.log(err));
 }
+
 axios.get(apiPerfil, {
     headers: {
         withCredentials: true,
