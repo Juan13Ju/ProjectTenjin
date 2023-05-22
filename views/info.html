@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script src="/js/info.js" defer></script>
-    <link rel="stylesheet" href="/css/stylesMain.css">
+    <link rel="stylesheet" href="/css/stylesInfo.css">
     <title>Perfil</title>
 </head>
 
@@ -17,16 +17,26 @@
             <ul>
                 <li><a href="perfil.html">Mi Perfil</a></li>
                 <li><a href="main.html">Buscar</a></li>
-                <li><a href="#">Salir</a></li>
+                <li><a href="#" id="btnSalir" class="btn">Salir</a></li>
             </ul>
         </div>
     </header>
     <div class="mainPage">
         <div class="cardProfile">
-            <h2 class="nombre" id="nombre"></h2>
+            <h2>Nombre</h2>
+            <h3 id="nombre"></h3>
+
+            <h2>Correo electronico</h2>
             <h3 class="correo" id="correo"></h3>
+
+            <h2>Carrera de origen</h2>
             <h3 class="carrera" id="carrera"></h3>
+
+            <h2>Descripción</h2>
             <p class="info" id="info"></p>
+
+            <h2>Promedio</h2>
+            <p class="promedio" id="promedio"></p>
         </div>
         <h2>Comentarios:</h2>
         <div class="comentariosContainer" id="comentariosContainer">
@@ -34,6 +44,19 @@
         <div class="comentarioInputContainer">
             <label for="comentarioInput">Deja tu comentario:</label>
             <textarea name="comentarioInput" id="comentarioInput" cols="30" rows="10"></textarea>
+            <p class="clasificacion">
+                <input id="radio1" type="radio" name="estrellas" value="5">
+                    <label for="radio1">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="4">
+                    <label for="radio2">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="1">
+                    <label for="radio5">★</label>
+              </p>
+            
             <button id="submitBtn" class="btn">Enviar</button>
         </div>
     </div>    

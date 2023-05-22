@@ -1,3 +1,8 @@
+window.addEventListener('load', () => {
+    let cookieAsesores = document.cookie.match(/asesoresToken=([^;]+)/);
+     if (cookieAsesores == null) location.href = "/";
+   }, false);
+
 const apiPerfil = "api/usuarios/MyProfile";
 
 // Obtenemos los inputs en los que estan la informacion del usuario
@@ -6,8 +11,18 @@ const nombre = document.getElementById("nombre");
 const carrera = document.getElementById("carrera");
 const materias = document.getElementById("asesorias");
 const info = document.getElementById("info");
+const btnSalir = document.getElementById("btnSalir");
+
 // Id para poder actualizar al usuario
 let id = null;
+
+// Para cerrar sesion
+btnSalir.addEventListener("click", (event) => {
+    event.preventDefault(); // Esto causa que se reinicie, porque es un form xd
+    asesores=document.cookie;
+    document.cookie = "asesoresToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.href = "";
+});
 
 // Para el boton de actualizar
 const btnUpdate = document.getElementById("btnUpdate");
