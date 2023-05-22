@@ -18,7 +18,7 @@ const usuarioSchema = new Schema(
         // Esta es la foto por default
         fotoPerfilId : {
             type: String,
-            default: "noProfile_jaqk9o"
+            default: "v1674083608/noProfile_jaqk9o.png"
         },
         asesorias: [String],
         calif: Number,

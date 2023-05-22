@@ -34,7 +34,8 @@ function createCard(userInfo, container){
     // La imagen de la tarjeta
     let img = document.createElement("img");
     img.classList.add("card-img-top")
-    img.setAttribute("src", "img/no-profile-image.png");
+    let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
+    img.setAttribute("src", imgSrc);
     card.appendChild(img);
     // Cuerpo de la tarjeta
     let cardBody = document.createElement("div");

@@ -1,5 +1,5 @@
 const express = require("express");
-const comentarioS = require("../services/comentarios");
+const ComentarioService = require("../services/comentarios");
 
 function comentarios(app){
 
@@ -7,7 +7,7 @@ function comentarios(app){
 
     app.use("/api/comentarios", router);
 
-    const comentarioService = new comentarioS();
+    const comentarioService = new ComentarioService();
 
     router.get("/:correo", async (req, res) => {
         const correo = req.params.correo;
