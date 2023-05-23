@@ -95,11 +95,19 @@ function crearInfo(data){
     carrera.textContent = data.carrera;
     let info = document.getElementById("info");
     info.textContent = data.info;
+
+    userInfo = data;
+    let img = document.createElement("img");
+    let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
+    img.setAttribute("src", imgSrc);
+    console.log(imgSrc);
+    // Agregamos la imagen 
+    let fig = document.getElementById("profileImg");
+    fig.appendChild(img);
 }
 
 // Creamos los comentarios
 function crearComentarios(data){
-    
     if(data.length == 0){
         let noComments = document.createElement("h2");
         noComments.textContent = "No hay comentarios disponibles."
@@ -109,14 +117,6 @@ function crearComentarios(data){
     let content = '';
 
     data.forEach(el => {
-        let div = document.createElement("div");
-        div.classList.add("comentario");
-        let coment = document.createElement("p");
-        coment.classList.add("comentarioContent")
-        coment.textContent = el.comentario;
-        div.append(coment);
-
-        contenedor.append(div);
         estrellasDadas = mostrarEstrellas(el.calif);
         content += `
         <div class="card mb-3">
