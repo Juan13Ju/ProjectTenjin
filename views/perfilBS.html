@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/newStyles.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script src="/js/miPerfil.js" defer></script>
+    <script type="module" src="/js/miPerfil.js" defer></script>
     <!--Bootstrap bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous" defer></script>
 </head>
@@ -46,7 +46,7 @@
             <div class="d-flex flex-column justify-content-center">
                 <label for="formFile" class="form-label">Sube una nueva foto: </label>
                 <input class="form-control" type="file" id="formFile">
-                <button class="btn btn-secondary w-50 center-element">Actualizar</button>
+                <button class="btn btn-secondary w-50 center-element" id="btnUpdate">Actualizar</button>
               </div>
         </div>
     </div>

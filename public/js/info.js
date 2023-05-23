@@ -37,9 +37,11 @@ btnComentario.addEventListener("click", () => {
         comentario: text,
         calif: estrella
     }
-    axios.post(apiComentarios, data)
-            .then(res => console.log("Comentario exitoso"))
-            .catch(err => console.log(err));
+    if (userInfo.correo != correo){
+        axios.post(apiComentarios, data)
+                .then(res => console.log("Comentario exitoso"))
+                .catch(err => console.log(err));
+    }else alert("No puedes comentar tu propio perfil");
 });
 
 
@@ -57,7 +59,6 @@ axios.get(apiComentarios+correo)
         let respuesta = response.data;
         crearComentarios(respuesta);
         let promedio = calcularPromedio(respuesta);
-        console.log(promedio);
         let prom = document.getElementById("promedio");
         prom.textContent = promedio+mostrarEstrellas(promedio);
     })
@@ -100,7 +101,6 @@ function crearInfo(data){
     let img = document.createElement("img");
     let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
     img.setAttribute("src", imgSrc);
-    console.log(imgSrc);
     // Agregamos la imagen 
     let fig = document.getElementById("profileImg");
     fig.appendChild(img);

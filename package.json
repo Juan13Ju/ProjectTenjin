@@ -13,7 +13,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.2.3",
-    "cloudinary": "^1.33.0",
+    "cloudinary": "^1.37.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
