@@ -28,6 +28,10 @@ function views(app){
     router.get("/mainBS.html", (req, res) => {
         res.render("mainBS");
     });
+
+    router.get("/infoBS.html", (req, res) => {
+        res.render("infoBS");
+    });
 }
 
 module.exports = views;

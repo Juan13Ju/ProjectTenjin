@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: seashell;
+    background-color: #EEEEEE;
 }
 
 :root{
@@ -15,114 +15,6 @@ body {
     --dec:#6F0619;
     --do: #897014;
 }
-/*
-Barra de navegacion
-*/
-
-.nav ul{
-    list-style: none;
-    background-color: var(--bgc);
-    text-align: center;
-    display: inline-flexbox;
-    padding: 0;
-    margin: 0 auto;
-}
-
-.nav li{
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border-bottom: 1px solid var(--secondary);
-}
-
-.nav a{
-    text-decoration: none;
-    color: white;
-    display: block;
-    transition: all 0.7s;;
-}
-.nav label{
-    text-decoration: none;
-    text-overflow: break-word;
-    color: white;
-    display: block;
-    transition: all 0.7s;;
-}
-.nav a:hover{
-    color: white;
-    background-color: var(--main);
-}
-
-@media screen and (min-width: 600px) {
-    .nav li {
-        border-bottom: none;
-        font-size: 1.4em;
-        display: inline-block;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        margin-left: 1%;
-        margin-right: 1%;
-    }
-    .nav > * {
-        padding: 2%;
-    }
-    .mainPage{
-        /*background-color: var(--secondary);*/
-        display: grid;
-    }
-}
-
-.mainPage{
-    display: flex;
-    margin-top: 4%;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-    margin: auto;
-}
-
-/*
-Perfil de usuario
-*/
-.cardProfile{
-    margin-top: 2%;
-    max-width: 70%;
-    cursor: pointer;
-    transition: all 1s;
-    
-}
-
-.cardProfile h2{
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 5px;
-}
-
-
-.comentariosContainer{
-    background-color: #897014;
-    width: 75%;
-    padding: .5em 1em;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.comentariosContainer::-webkit-scrollbar
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: #F5F5F5;
-    display: none;
-}
-
-.comentario{
-    
-    padding: 5px 10px;
-    background-color: #747070;
-}
-
 
 /* Estrellas*/
 #form {

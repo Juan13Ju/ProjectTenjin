@@ -16,7 +16,7 @@ const btnComentario = document.getElementById("submitBtn");
 const btnSalir = document.getElementById("btnSalir");
 
 const califInput = document.getElementsByName("estrellas");
-
+let contenedor = document.getElementById("comentariosContainer");
 
 // Para cerrar sesion
 btnSalir.addEventListener("click", (event) => {
@@ -99,13 +99,15 @@ function crearInfo(data){
 
 // Creamos los comentarios
 function crearComentarios(data){
-    let contenedor = document.getElementById("comentariosContainer");
+    
     if(data.length == 0){
         let noComments = document.createElement("h2");
         noComments.textContent = "No hay comentarios disponibles."
         contenedor.append(noComments);
         return;
     }
+    let content = '';
+
     data.forEach(el => {
         let div = document.createElement("div");
         div.classList.add("comentario");
@@ -115,5 +117,14 @@ function crearComentarios(data){
         div.append(coment);
 
         contenedor.append(div);
+        estrellasDadas = mostrarEstrellas(el.calif);
+        content += `
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">${el.comentario}</h5>
+                <p class="card-text">${estrellasDadas}</p>
+            </div>
+        </div>`
     });
+    comentariosContainer.innerHTML = content;
 }
