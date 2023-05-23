@@ -32,6 +32,10 @@ function views(app){
     router.get("/infoBS.html", (req, res) => {
         res.render("infoBS");
     });
+
+    router.get("/perfilBS.html", (req, res) => {
+        res.render("perfilBS");
+    });
 }
 
 module.exports = views;
