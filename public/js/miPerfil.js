@@ -6,11 +6,11 @@ window.addEventListener('load', () => {
 const apiPerfil = "api/usuarios/MyProfile";
 // Obtenemos los inputs en los que estan la informacion del usuario
 const apiUsuarios = "api/usuarios/"
-/* const nombre = document.getElementById("nombre");
+const nombre = document.getElementById("nombre");
 const carrera = document.getElementById("carrera");
 const materias = document.getElementById("asesorias");
 const info = document.getElementById("info");
-const btnSalir = document.getElementById("btnSalir"); */
+const btnSalir = document.getElementById("btnSalir");
 
 // Id para poder actualizar al usuario
 let id = null;
@@ -26,30 +26,24 @@ btnSalir.addEventListener("click", (event) => {
 // Para el boton de actualizar
 const btnUpdate = document.getElementById("btnUpdate");
 btnUpdate.addEventListener("click", () => {
-    /*let newNombre = "prueba";//nombre.value;
-    let newCarrera = "pr";//carrera.value;
-    let newMaterias = "pr";//materias.value.split(",");
-    let newInfo = "info"//info.value;
+    let newNombre = nombre.value;
+    let newCarrera = carrera.value;
+    let newMaterias = materias.value.split(",");
+    let newInfo = info.value;
     console.log({
         newNombre,
         newCarrera,
         newMaterias,
         newInfo
-    });*/
-    console.log("Actualizado");
-    let input = document.getElementById("formFile")
-    let value = input.value
-    axios.put(apiUsuarios+`/fotoPerfil/${id}`, {
-        fotoPerfil: value,
     });
-    
-   /* axios.put(apiUsuarios+`/${id}`, {
+   axios.put(apiUsuarios+`/${id}`, {
         nombre: newNombre,
         carrera: newCarrera,
-        fotoPerfilId: value,
         asesorias: newMaterias,
         info: newInfo
-    });*/
+    });
+
+    alert("info actualizada");
 }); 
 
 function llenarInfo(email){
@@ -57,12 +51,11 @@ function llenarInfo(email){
     axios.get(apiUsuarios+email)
             .then(res => {
                 userInfo = res.data;
-                console.log(userInfo);
                 id = userInfo._id;
-                /*nombre.value = infoUser.nombre;
-                carrera.value = infoUser.carrera;
-                materias.value = infoUser.asesorias.join();
-                info.value = infoUser.info; */
+                nombre.value = userInfo.nombre;
+                carrera.value = userInfo.carrera;
+                materias.value = userInfo.asesorias.join();
+                info.value = userInfo.info;
                 // Obtenemos la imagen
                 let img = document.createElement("img");
                 let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;

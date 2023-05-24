@@ -39,15 +39,58 @@
     </header>
 
     <div class="container-md d-flex flex-column align-items-center container-bg" style="border: 1px solid red;">
-        <h2>Modifica la informacion de tu perfil</h2>
-        <div class="container editImgContainer d-flex justify-content-center flex-wrap" style="border: 1px solid green">
+        <h2>Modifica la informacion de tu perfil: </h2>
+        <div class="container editImgContainer d-flex justify-content-center flex-wrap mb-5" style="border: 1px solid green">
             <figure class="mx-5" id="profileImg">
             </figure>
             <div class="d-flex flex-column justify-content-center">
                 <label for="formFile" class="form-label">Sube una nueva foto: </label>
                 <input class="form-control" type="file" id="formFile">
-                <button class="btn btn-secondary w-50 center-element" id="btnUpdate">Actualizar</button>
+                <button class="btn btn-secondary w-50 center-element" id="btnUpdatePicture">Actualizar</button>
               </div>
+        </div>
+        <div class="container-md d-flex flex-column container-bg align-items-center" style="border: 1px solid yellow">
+            <div class="editInfoContainer container d-flex flex-column align-items-center">
+                <div class="mb-3 row">
+                    <label for="userEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="userEmail" value="email@example.com">
+                    </div>
+                  </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre: </label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="carrera" class="form-label">Carrera:</label>
+                    
+                    <select class="form-control-select" name="carrera" id="carrera">
+                        <option value="Actuaria">Actuaria</option>
+                        <option value="Biologia">Biologia</option>
+                        <option value="Ciencias de la Computacion">Ciencias de la Computacion</option>
+                        <option value="Ciencias de la tierra">Ciencias de la Tierra</option>
+                        <option value="Fisica biomedica">Fisica Biomedica</option>
+                        <option value="Matematicas">Matematicas</option>
+                        <option value="Matematicas aplicadas">Matematicas Aplicadas</option>
+                    </select>
+                    
+                </div>
+                <div class="mb-3 d-flex flex-column w-75">
+                    <label class="d-flex flex-column form-label" for="asesorias">
+                        Materias en las que ofreces asesorias:
+                        <span>Ingresa una lista separada por comas, ej: Materia 1, Materia 2.</span>
+                        <span>Para materias que usan numeros romanos utiliza 1,2,3,...</span>
+                    </label>
+                    <input class="form-control" type="text" name="asesorias" id="asesorias">
+                </div>
+                <div class="d-flex flex-column w-75">
+                    <label for="info" class="form-label">
+                        Informacion de contacto: 
+                    </label>
+                    <textarea class="form-control" name="info" id="info" cols="30" rows="4"></textarea>
+                </div>
+                <button class="btn btn-primary" id="btnUpdate">Actualizar</button>
+            </div>
         </div>
     </div>
 </body>
