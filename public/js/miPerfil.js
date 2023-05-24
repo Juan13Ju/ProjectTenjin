@@ -4,7 +4,6 @@ window.addEventListener('load', () => {
    }, false);
 
 const apiPerfil = "api/usuarios/MyProfile";
-
 // Obtenemos los inputs en los que estan la informacion del usuario
 const apiUsuarios = "api/usuarios/"
 /* const nombre = document.getElementById("nombre");
@@ -25,35 +24,42 @@ btnSalir.addEventListener("click", (event) => {
 });
 
 // Para el boton de actualizar
-/* const btnUpdate = document.getElementById("btnUpdate");
+const btnUpdate = document.getElementById("btnUpdate");
 btnUpdate.addEventListener("click", () => {
-    let newNombre = nombre.value;
-    let newCarrera = carrera.value;
-    let newMaterias = materias.value.split(",");
-    let newInfo = info.value;
+    /*let newNombre = "prueba";//nombre.value;
+    let newCarrera = "pr";//carrera.value;
+    let newMaterias = "pr";//materias.value.split(",");
+    let newInfo = "info"//info.value;
     console.log({
         newNombre,
         newCarrera,
         newMaterias,
         newInfo
+    });*/
+    console.log("Actualizado");
+    let input = document.getElementById("formFile")
+    let value = input.value
+    axios.put(apiUsuarios+`/fotoPerfil/${id}`, {
+        fotoPerfil: value,
     });
-
-    axios.put(apiUsuarios+`/${id}`, {
+    
+   /* axios.put(apiUsuarios+`/${id}`, {
         nombre: newNombre,
         carrera: newCarrera,
+        fotoPerfilId: value,
         asesorias: newMaterias,
         info: newInfo
-    });
-
-}); */
+    });*/
+}); 
 
 function llenarInfo(email){
     let userInfo = null;
     axios.get(apiUsuarios+email)
             .then(res => {
                 userInfo = res.data;
-                /*id = infoUser._id;
-                nombre.value = infoUser.nombre;
+                console.log(userInfo);
+                id = userInfo._id;
+                /*nombre.value = infoUser.nombre;
                 carrera.value = infoUser.carrera;
                 materias.value = infoUser.asesorias.join();
                 info.value = infoUser.info; */

@@ -2,6 +2,8 @@
 const express = require("express");
 const Usuarios = require("../services/usuarios");
 const decodeToken = require("../libs/decodeToken");
+const cloudinary = require('cloudinary').v2;
+
 // Aqui definimos los routers para las operaciones de usuarios
 function usuarios(app){
     const router = express.Router();
@@ -30,7 +32,7 @@ function usuarios(app){
         res.status(200).json(asesor);
     });
 
-    // Acutalizamos la informacion de un usuario
+    // Actualizamos la informacion de un usuario
     router.put("/:id", async (req, res) => {
         const id = req.params.id;
         const data = req.body;
@@ -44,6 +46,16 @@ function usuarios(app){
         const data = req.body;
         const result = await usuariosService.deleteUser(id, data);
         res.status(200).json(result);
+    });
+
+    // actualizamos la foto de perfil de un usuario
+    router.put("/fotoPerfil/:id", async (req, res) => {
+        //console.log("Actualizando foto de perfil");
+        //console.log(req.body.fotoPerfil);
+        image = req.body.fotoPerfil;
+        cloudinary.uploader
+        .upload(image)
+        .then(result=>console.log(result));
     });
 }
 

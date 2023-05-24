@@ -29,6 +29,10 @@ function views(app){
         res.render("mainBS");
     });
 
+    router.get("/infoBS.html", (req, res) => {
+        res.render("infoBS");
+    });
+
     router.get("/perfilBS.html", (req, res) => {
         res.render("perfilBS");
     });

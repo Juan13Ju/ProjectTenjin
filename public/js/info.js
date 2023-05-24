@@ -16,7 +16,7 @@ const btnComentario = document.getElementById("submitBtn");
 const btnSalir = document.getElementById("btnSalir");
 
 const califInput = document.getElementsByName("estrellas");
-
+let contenedor = document.getElementById("comentariosContainer");
 
 // Para cerrar sesion
 btnSalir.addEventListener("click", (event) => {
@@ -37,9 +37,11 @@ btnComentario.addEventListener("click", () => {
         comentario: text,
         calif: estrella
     }
-    axios.post(apiComentarios, data)
-            .then(res => console.log("Comentario exitoso"))
-            .catch(err => console.log(err));
+    if (userInfo.correo != correo){
+        axios.post(apiComentarios, data)
+                .then(res => console.log("Comentario exitoso"))
+                .catch(err => console.log(err));
+    }else alert("No puedes comentar tu propio perfil");
 });
 
 
@@ -57,7 +59,6 @@ axios.get(apiComentarios+correo)
         let respuesta = response.data;
         crearComentarios(respuesta);
         let promedio = calcularPromedio(respuesta);
-        console.log(promedio);
         let prom = document.getElementById("promedio");
         prom.textContent = promedio+mostrarEstrellas(promedio);
     })
@@ -95,25 +96,35 @@ function crearInfo(data){
     carrera.textContent = data.carrera;
     let info = document.getElementById("info");
     info.textContent = data.info;
+
+    userInfo = data;
+    let img = document.createElement("img");
+    let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
+    img.setAttribute("src", imgSrc);
+    // Agregamos la imagen 
+    let fig = document.getElementById("profileImg");
+    fig.appendChild(img);
 }
 
 // Creamos los comentarios
 function crearComentarios(data){
-    let contenedor = document.getElementById("comentariosContainer");
     if(data.length == 0){
         let noComments = document.createElement("h2");
         noComments.textContent = "No hay comentarios disponibles."
         contenedor.append(noComments);
         return;
     }
-    data.forEach(el => {
-        let div = document.createElement("div");
-        div.classList.add("comentario");
-        let coment = document.createElement("p");
-        coment.classList.add("comentarioContent")
-        coment.textContent = el.comentario;
-        div.append(coment);
+    let content = '';
 
-        contenedor.append(div);
+    data.forEach(el => {
+        estrellasDadas = mostrarEstrellas(el.calif);
+        content += `
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">${el.comentario}</h5>
+                <p class="card-text">${estrellasDadas}</p>
+            </div>
+        </div>`
     });
+    comentariosContainer.innerHTML = content;
 }

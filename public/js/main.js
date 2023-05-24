@@ -71,7 +71,7 @@ function createCard(userInfo, container){
     cardUl.appendChild(carrera);
     // Funcion para abrir una nueva ventana con la informacion del usuario
     card.addEventListener("click", () => {
-        window.location.href = "info.html?correo="+correoE;
+        window.location.href = "infoBS.html?correo="+correoE;
        });
 
 }
