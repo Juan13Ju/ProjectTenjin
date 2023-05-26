@@ -23,7 +23,7 @@ btnSalir.addEventListener("click", (event) => {
     location.href = "";
 });
 
-// Para el boton de actualizar
+// Para el boton de actualizar info
 const btnUpdate = document.getElementById("btnUpdate");
 btnUpdate.addEventListener("click", () => {
     let newNombre = nombre.value;
@@ -46,6 +46,7 @@ btnUpdate.addEventListener("click", () => {
     alert("info actualizada");
 }); 
 
+// Llena la info del perfil cuando se carga la pagina
 function llenarInfo(email){
     let userInfo = null;
     axios.get(apiUsuarios+email)
@@ -58,7 +59,7 @@ function llenarInfo(email){
                 info.value = userInfo.info;
                 // Obtenemos la imagen
                 let img = document.createElement("img");
-                let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
+                let imgSrc = userInfo.fotoPerfilURL;
                 img.setAttribute("src", imgSrc);
                 // Agregamos la imagen 
                 let fig = document.getElementById("profileImg");

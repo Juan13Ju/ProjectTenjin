@@ -3,6 +3,9 @@ const express = require("express");
 const Usuarios = require("../services/usuarios");
 const decodeToken = require("../libs/decodeToken");
 const cloudinary = require('cloudinary').v2;
+require("../libs/cloudinary");
+const upload = require("../libs/multer");
+
 
 // Aqui definimos los routers para las operaciones de usuarios
 function usuarios(app){
@@ -49,13 +52,31 @@ function usuarios(app){
     });
 
     // actualizamos la foto de perfil de un usuario
-    router.put("/fotoPerfil/:id", async (req, res) => {
-        //console.log("Actualizando foto de perfil");
-        //console.log(req.body.fotoPerfil);
-        image = req.body.fotoPerfil;
-        cloudinary.uploader
-        .upload(image)
-        .then(result=>console.log(result));
+    router.post("/fotoPerfil", upload.single("formFile"), async (req, res) => {
+    
+        const {asesoresToken} = req.cookies;
+        const user = decodeToken(asesoresToken);
+        try{
+            image = req.file;
+            const newImg = await cloudinary.uploader.upload(image.path);
+            // Obtenemos el id para poder borrar la foto de cloudinary
+            const {fotoPerfilId} = usuariosService.getUser(user.correo);
+            console.log("Eliminando foto");
+            // Esto porque el perfil de usuario no tiene un perfilId en caso de usar la imagen predeterminada
+            if(fotoPerfilId){
+                await cloudinary.uploader.destroy(fotoPerfilId);
+            }
+            // Actualizamos en el perfil del usuario
+            console.log("Actualizando info");
+            await usuariosService.updateUser(user.id, {
+                fotoPerfilId: newImg.public_id,
+                fotoPerfilURL: newImg.url,
+            });
+            res.status(201).json({msg: "Foto actualizada"});
+        }catch(err){
+            console.log(err);
+            res.status(500).json({msg: "Error en subir foto"});
+        }
     });
 }
 

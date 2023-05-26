@@ -99,8 +99,9 @@ function crearInfo(data){
 
     userInfo = data;
     let img = document.createElement("img");
-    let imgSrc = "https://res.cloudinary.com/dzya3fvwj/image/upload/" + userInfo.fotoPerfilId;
+    let imgSrc = userInfo.fotoPerfilURL;
     img.setAttribute("src", imgSrc);
+    img.setAttribute("style", "max-width:350px; height:auto;")
     // Agregamos la imagen 
     let fig = document.getElementById("profileImg");
     fig.appendChild(img);
