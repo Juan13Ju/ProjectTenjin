@@ -12,6 +12,9 @@ function views(app){
         res.render("index");
     });
 
+    router.get("/index.html", (req, res) => {
+        res.render("index");
+    });
     router.get("/info.html", (req, res) => {
         res.render("infoBS");
     });

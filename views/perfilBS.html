@@ -38,18 +38,20 @@
         </nav>
     </header>
 
-    <div class="container-md d-flex flex-column align-items-center container-bg" style="border: 1px solid red;">
+    <div class="container-md d-flex flex-column align-items-center container-bg">
         <h2>Modifica la informacion de tu perfil: </h2>
-        <div class="container editImgContainer d-flex justify-content-center flex-wrap mb-5" style="border: 1px solid green">
+        <div class="container editImgContainer d-flex justify-content-center flex-wrap mb-5">
             <figure class="mx-5" id="profileImg">
             </figure>
             <div class="d-flex flex-column justify-content-center">
-                <label for="formFile" class="form-label">Sube una nueva foto: </label>
-                <input class="form-control" type="file" id="formFile">
-                <button class="btn btn-secondary w-50 center-element" id="btnUpdatePicture">Actualizar</button>
+                <form action="/api/usuarios/fotoPerfil" method="post" enctype="multipart/form-data">
+                    <label for="formFile" class="form-label">Sube una nueva foto: </label>
+                    <input class="form-control" type="file" name="formFile" id="formFile" accept=".jpg, .jpeg, .png">
+                    <button class="btn btn-secondary w-50 center-element" id="btnUpdatePicture" type="submit">Actualizar</button>
+                </form> 
               </div>
         </div>
-        <div class="container-md d-flex flex-column container-bg align-items-center" style="border: 1px solid yellow">
+        <div class="container-md d-flex flex-column container-bg align-items-center">
             <div class="editInfoContainer container d-flex flex-column align-items-center">
                 <div class="mb-3 row">
                     <label for="userEmail" class="col-sm-2 col-form-label">Email</label>

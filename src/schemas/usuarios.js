@@ -16,10 +16,11 @@ const usuarioSchema = new Schema(
         contrasena: {type: String, required: true},
         carrera: {type: String, required: true},
         // Esta es la foto por default
-        fotoPerfilId : {
-            type: String,
-            default: "v1674083608/noProfile_jaqk9o.png"
+        fotoPerfilURL : {
+            type: String, 
+            default: "https://res.cloudinary.com/dzya3fvwj/image/upload/v1674083608/noProfile_jaqk9o.png"
         },
+        fotoPerfilId : {type: String, required: false},
         asesorias: [String],
         calif: Number,
         info: String
