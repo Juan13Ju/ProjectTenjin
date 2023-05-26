@@ -26,8 +26,8 @@ function auth(app){
             secure:true
         });
         console.log("Redireccionando");
-        //res.render("main");
-        res.redirect("/?#");
+        res.render("mainBS");
+        //res.redirect("/?#");
 
         
             // console.log("aui");
