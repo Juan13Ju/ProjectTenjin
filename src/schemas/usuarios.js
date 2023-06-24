@@ -23,6 +23,14 @@ const usuarioSchema = new Schema(
         fotoPerfilId : {type: String, required: false},
         asesorias: [String],
         calif: Number,
+        token: {
+            type: String,
+            default: ""
+        },
+        verificado: {
+            type: Boolean,
+            default: false 
+        },
         info: String
     }
 );

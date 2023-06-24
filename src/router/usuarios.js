@@ -78,6 +78,15 @@ function usuarios(app){
             res.status(500).json({msg: "Error en subir foto"});
         }
     });
+
+     // Confirmar un usuario
+     router.put("confirmar/:token", async (req, res) => {
+        const id = req.params.token;
+        const data = req.body;
+        const result = await usuariosService.updateUser(id, data);
+        res.status(200).json(result);
+    });
+
 }
 
 module.exports = usuarios;
