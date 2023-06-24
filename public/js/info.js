@@ -1,8 +1,8 @@
 window.addEventListener('load', () => {
     let cookieAsesores = document.cookie.match(/asesoresToken=([^;]+)/);
-     if (cookieAsesores == null) location.href = "/";
-   }, false);
-   
+    if (cookieAsesores == null) location.href = "/";
+}, false);
+
 // Obtenemos el correo del usuario para crear su perfil
 const urlString = window.location.href;
 const url = new URL(urlString);
@@ -21,7 +21,7 @@ let contenedor = document.getElementById("comentariosContainer");
 // Para cerrar sesion
 btnSalir.addEventListener("click", (event) => {
     event.preventDefault(); // Esto causa que se reinicie, porque es un form xd
-    asesores=document.cookie;
+    asesores = document.cookie;
     document.cookie = "asesoresToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     location.href = "";
 });
@@ -31,22 +31,21 @@ btnComentario.addEventListener("click", () => {
     let text = comentarioInput.value;
     let estrella = 0;
     califInput.forEach(el => {
-        if (el.checked) estrella=el.value;});
+        if (el.checked) estrella = el.value;
+    });
     let data = {
         to: correo,
         comentario: text,
         calif: estrella
     }
-    if (userInfo.correo != correo){
-        axios.post(apiComentarios, data)
-                .then(res => console.log("Comentario exitoso"))
-                .catch(err => console.log(err));
-    }else alert("No puedes comentar tu propio perfil");
+    axios.post(apiComentarios, data)
+        .then(res => console.log("Comentario exitoso"))
+        .catch(err => console.log(err));
 });
 
 
 // Hacemos la peticion para obtener su informacion
-axios.get(apiUsuarios+correo)
+axios.get(apiUsuarios + correo)
     .then(response => {
         crearInfo(response.data);
     })
@@ -54,40 +53,40 @@ axios.get(apiUsuarios+correo)
         console.log(err);
     });
 // Comentarios asociados al perfil
-axios.get(apiComentarios+correo)
+axios.get(apiComentarios + correo)
     .then(response => {
         let respuesta = response.data;
         crearComentarios(respuesta);
         let promedio = calcularPromedio(respuesta);
         let prom = document.getElementById("promedio");
-        prom.textContent = promedio+mostrarEstrellas(promedio);
+        prom.textContent = promedio + mostrarEstrellas(promedio);
     })
     .catch(err => {
         console.log(err);
     });
 // Calcular promedio de calificaciones
-function calcularPromedio(response){
+function calcularPromedio(response) {
     let suma = 0;
     response.forEach(c => {
         if (isNaN(c.calif)) c.calif = 0;
-        suma+=c.calif;
+        suma += c.calif;
     });
-    return suma/response.length;
+    return suma / response.length;
 }
 // Crear cadena de estrellas
 function mostrarEstrellas(promedio) {
     var estrellas = '';
     var maxEstrellas = 5;
     for (var i = 0; i < maxEstrellas; i++) {
-      if (promedio > i) estrellas += '⭐️';
-      else estrellas += '☆';
+        if (promedio > i) estrellas += '⭐️';
+        else estrellas += '☆';
     }
     return estrellas;
-  }
+}
 
 
 // Creamos la info del usuario
-function crearInfo(data){
+function crearInfo(data) {
     let nombre = document.getElementById("nombre");
     nombre.textContent = data.nombre;
     let correo = document.getElementById("correo");
@@ -108,8 +107,8 @@ function crearInfo(data){
 }
 
 // Creamos los comentarios
-function crearComentarios(data){
-    if(data.length == 0){
+function crearComentarios(data) {
+    if (data.length == 0) {
         let noComments = document.createElement("h2");
         noComments.textContent = "No hay comentarios disponibles."
         contenedor.append(noComments);
